@@ -8,20 +8,20 @@ import (
 
 type User struct {
 	gorm.Model
-	ID       int `gorm:"primaryKey"`
-	Name     string
-	Email    string
-	Password string
+	ID        int `gorm:"primaryKey"`
+	Name      string
+	Email     string
+	Password  string
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	Photos []Photo `gorm:"foreignKey:UserID"`
+	Photos []Photo `gorm:"foreigKey:UserID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
 type Photo struct {
 	gorm.Model
-	ID int `gorm:"primaryKey"`
-	Title string
-	Caption string
+	ID       int `gorm:"primaryKey"`
+	Title    string
+	Caption  string
 	PhotoUrl string
-	UserID uint
+	UserID   uint
 }
