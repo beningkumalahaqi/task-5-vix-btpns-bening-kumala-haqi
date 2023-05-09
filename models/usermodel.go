@@ -8,20 +8,43 @@ import (
 
 type User struct {
 	gorm.Model
-	ID        int `gorm:"primaryKey"`
-	Name      string
-	Email     string
+	ID        uint `gorm:"primaryKey"`
+	Username  string
+	Email     string `gorm:"unique;not null"`
 	Password  string
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	Photos []Photo `gorm:"foreigKey:UserID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	Photos    []Photo `gorm:"foreigKey:UserID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
 type Photo struct {
 	gorm.Model
-	ID       int `gorm:"primaryKey"`
+	ID       uint `gorm:"primaryKey"`
 	Title    string
 	Caption  string
 	PhotoUrl string
-	UserID   uint
+	UserID   int
+}
+
+type Register struct {
+	Username string `json:"username"`
+	Email    string `json:"email"`
+	Password string `json:"password"`
+}
+
+type Login struct {
+	Email string `json:"email"`
+	Password string `json:"password"`
+}
+
+type MyProfile struct {
+	ID uint `json:"id"`
+	Username string `json:"username"`
+	Email string `json:"email"`
+}
+
+type UpdateProfile struct {
+	Username string `json:"username"`
+	Email string `json:"email"`
+	Password string `json:"password"`
 }
