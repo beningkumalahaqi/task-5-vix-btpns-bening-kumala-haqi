@@ -2,7 +2,6 @@ package models
 
 import (
 	"time"
-
 	"gorm.io/gorm"
 )
 
@@ -17,15 +16,6 @@ type User struct {
 	Photos    []Photo `gorm:"foreigKey:UserID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
-type Photo struct {
-	gorm.Model
-	ID       uint `gorm:"primaryKey"`
-	Title    string
-	Caption  string
-	PhotoUrl string
-	UserID   int
-}
-
 type Register struct {
 	Username string `json:"username"`
 	Email    string `json:"email"`
@@ -33,18 +23,18 @@ type Register struct {
 }
 
 type Login struct {
-	Email string `json:"email"`
+	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
 type MyProfile struct {
-	ID uint `json:"id"`
+	ID       uint   `json:"id"`
 	Username string `json:"username"`
-	Email string `json:"email"`
+	Email    string `json:"email"`
 }
 
 type UpdateProfile struct {
 	Username string `json:"username"`
-	Email string `json:"email"`
+	Email    string `json:"email"`
 	Password string `json:"password"`
 }
