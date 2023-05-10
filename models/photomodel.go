@@ -8,5 +8,18 @@ type Photo struct {
 	Title    string
 	Caption  string
 	PhotoUrl string
-	UserID   int
+	UserID   uint `gorm:"unique"`
+}
+
+type UploadPhoto struct {
+	Title string `json:"title"`
+	Caption string `json:"caption"`
+	PhotoUrl string `json:"photo_url"`
+	UserID uint `json:"user_id"`
+}
+
+type UpdatePhoto struct {
+	Title string `json:"title"`
+	Caption string `json:"caption"`
+	PhotoUrl string `json:"photo_url"`
 }

@@ -18,6 +18,7 @@ func main() {
 	routes.AuthRoutes(router)
 	routes.UserRoutes(router)
 	routes.GetAllUser(router)
+	routes.PhotoRoutes(router)
 
 	log.Println("Server Runnnig On Port 8000")
 	http.ListenAndServe(":8000", router)

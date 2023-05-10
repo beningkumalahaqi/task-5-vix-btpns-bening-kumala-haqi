@@ -12,10 +12,8 @@ func PhotoRoutes(r *mux.Router) {
 
 	router.Use(middlewares.Auth)
 
-	router.HandleFunc("/", controllers.GetAllPhoto).Methods("GET")
-
-	router.HandleFunc("/See/{id}", controllers.GetPhoto).Methods("GET")
-	router.HandleFunc("/upload/{id}", controllers.UploadPhoto).Methods("POST")
-	router.HandleFunc("/update/{id}", controllers.UpdatePhoto).Methods("PUT")
-	router.HandleFunc("/delete/{id}", controllers.DeletePhoto).Methods("DELETE")
+	router.HandleFunc("", controllers.GetPhoto).Methods("GET")
+	router.HandleFunc("/upload", controllers.UploadPhoto).Methods("POST")
+	router.HandleFunc("/update", controllers.UpdatePhoto).Methods("PUT")
+	router.HandleFunc("/delete", controllers.DeletePhoto).Methods("DELETE")
 }
