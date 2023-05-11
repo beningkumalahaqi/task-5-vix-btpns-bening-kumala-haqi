@@ -1,0 +1,18 @@
+{
+  "name": "task-5-vix-btpns-bening-kumala-haqi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "docs/app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "go run . && nodemon docs/app.js"
+  },
+  "author": "Haqi",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
